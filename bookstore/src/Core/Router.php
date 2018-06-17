@@ -50,7 +50,7 @@ class Router {
 		string $route,
 		string $path
 		) : array {
-			$parans = [];
+			$params = [];
 			
 			$pathParts = explode('/', $path);
 			$routeParts = explode('/', $route);
@@ -82,7 +82,7 @@ class Router {
 			}
 		}
 
-		$params = $this->extractParams($rout, $path);
+		$params = $this->extractParams($route, $path);
 
 		return call_user_func_array([$controller, $info['method']], $params);
 	}

@@ -9,7 +9,7 @@ class FilteredMap {
 		$this->map = $baseMap;
 	}
 
-	public function has(string $name): boo
+	public function has(string $name): bool
 	{
 		return isset($this->map[$name]);
 	}

@@ -7,7 +7,7 @@ use Bookstore\Models\CustomerModel;
 
 class CustomerController extends AbstractController
 {
-	public function login(string $email): string
+	public function login(string $email=null): string
 	{
 		if (!$this->request->isPost())
 		{

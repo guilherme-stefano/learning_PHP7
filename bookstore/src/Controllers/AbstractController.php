@@ -7,6 +7,7 @@ use Bookstore\Core\Db;
 use Bookstore\Core\Request;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
+use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
 abstract class AbstractController {
@@ -16,17 +17,17 @@ abstract class AbstractController {
 	protected $view;
 	protected $log;
 
-	public function __contruct(Request$request) {
+	public function __construct(Request $request) {
 		$this->request = $request;
 		$this->db = Db::getInstance();
 		$this->config = Config::getInstance();
 
 		$loader = new Twig_Loader_Filesystem(
-			__DIR__ . '/views'
+			__DIR__ . '/../../views'
 			);
 		$this->view = new Twig_Environment($loader);
 		$this->log = new Logger('bookstore');
-		$logFile - $this->config->get('log');
+		$logFile = $this->config->get('log');
 		$this->log->pushHandler(new StreamHandler($logFile, Logger::DEBUG));
 	}
 
