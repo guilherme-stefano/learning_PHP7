@@ -3,5 +3,7 @@
 	{
 		"user" : "root",
 		"password" : "root"
-	}
+	},
+
+	"log" : "/var/log/bookstore.log"
 }

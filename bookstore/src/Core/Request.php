@@ -17,7 +17,7 @@ class Request {
 	public function __construct() {
 		$this->domain = $_SERVER['HTTP_HOST'];
 		$this->path = $_SERVER['REQUEST_URI'];
-		$this->method = $_SERVER['REQQUEST_METHOD'];
+		$this->method = $_SERVER['REQUEST_METHOD'];
 		$this->params = new FilteredMap(array_merge($_POST, $_GET));
 		$this->cookies = new FilteredMap($_COOKIE);
 	}
@@ -42,7 +42,7 @@ class Request {
 		return $this->domain;
 	}
 
-	public function getPaht(): string
+	public function getPath(): string
 	{
 		return $this->path;
 	}
@@ -52,7 +52,7 @@ class Request {
 		return $this->method;
 	}
 
-	public function isPost: bool
+	public function isPost(): bool
 	{
 		return $this->method === self::POST;
 	}

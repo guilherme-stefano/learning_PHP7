@@ -22,7 +22,7 @@ class Router {
 		$path = $request->getPath();
 
 		foreach ($this->routeMap as $route => $info) {
-			$regexRout = $this->getRegexRoute($route, $info);
+			$regexRoute = $this->getRegexRoute($route, $info);
 				if (preg_match("@^/$regexRoute$@", $path)) {
 					return $this->executeController(
 						$route, $path, $info, $request
