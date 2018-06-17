@@ -5,5 +5,5 @@
 		"password" : "root"
 	},
 
-	"log" : "/var/log/bookstore.log"
+	"log" : "/../../var/log/bookstore.log"
 }

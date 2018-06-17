@@ -23,7 +23,7 @@ class CustomerController extends AbstractController
 
 		$email = $params->getString('email');
 
-		$customerMOdel = new CustomerMode($this->db);
+		$customerModel = new CustomerModel($this->db);
 
 		try {
 			$customer = $customerModel->getByEmail($email);

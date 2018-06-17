@@ -27,7 +27,7 @@ abstract class AbstractController {
 			);
 		$this->view = new Twig_Environment($loader);
 		$this->log = new Logger('bookstore');
-		$logFile = $this->config->get('log');
+		$logFile = __DIR__ . $this->config->get('log');
 		$this->log->pushHandler(new StreamHandler($logFile, Logger::DEBUG));
 	}
 

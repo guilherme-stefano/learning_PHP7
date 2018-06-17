@@ -15,7 +15,7 @@ class CustomerModel extends AbstractModel {
 		$row = $sth->fetch();
 
 		if (empty($row)) {
-			throw new NotFoundException
+			throw new NotFoundException;
 		}
 
 		return CustomerFactory::factory(
@@ -30,10 +30,10 @@ class CustomerModel extends AbstractModel {
 
 	public function getByEmail(string $email) : Customer 
 	{
-		$query = 'SELECT * FROM customer WHERE email = :user;'
+		$query = 'SELECT * FROM customer WHERE email = :user';
 
 		$sth = $this->db->prepare($query);
-		$sth->execute(['user' => $emai]);
+		$sth->execute(['user' => $email]);
 
 		$row = $sth->fetch();
 
