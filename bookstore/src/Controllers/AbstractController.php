@@ -3,33 +3,26 @@
 namespace Bookstore\Controllers;
 
 use Bookstore\Core\Config;
-use Bookstore\Core\Db;
 use Bookstore\Core\Request;
-use Twig_Environment;
-use Twig_Loader_Filesystem;
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
+use Bookstore\Utils\DependencyInjector;
 
 abstract class AbstractController {
 	protected $request;
+	protected $di;
 	protected $db;
 	protected $config;
 	protected $view;
 	protected $log;
 	protected $customerId;
 
-	public function __construct(Request $request) {
+	public function __construct(DependencyInjector $di, Request $request) {
 		$this->request = $request;
-		$this->db = Db::getInstance();
-		$this->config = Config::getInstance();
-
-		$loader = new Twig_Loader_Filesystem(
-			__DIR__ . '/../../views'
-			);
-		$this->view = new Twig_Environment($loader);
-		$this->log = new Logger('bookstore');
-		$logFile = __DIR__ . $this->config->get('log');
-		$this->log->pushHandler(new StreamHandler($logFile, Logger::DEBUG));
+		$this->di = $di;
+		$this->db = $di->get('PDO');
+		$this->log = $di->get('Logger');
+		$this->view = $di->get('Twig_Environment');
+		$this->config =  $di->get('Utils\Config');
+		$this->customerId = $_COOKIE['id'];
 	}
 
 	public function setCustomerId(int $customerId) {
