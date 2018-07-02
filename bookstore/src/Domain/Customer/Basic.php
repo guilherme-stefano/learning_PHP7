@@ -23,6 +23,6 @@ class Basic extends Person implements Customer {
 	}
 
 	public function isExtentOfTaxes(): bool {
-		return true;
+		return false;
 	}
 }
