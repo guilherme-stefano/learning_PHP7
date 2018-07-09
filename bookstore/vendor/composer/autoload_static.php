@@ -46,6 +46,7 @@ class ComposerStaticInit45a8bf363c594f11a4796b1ed1bbcf5b
         ),
         'B' => 
         array (
+            'Bookstore\\Tests\\' => 16,
             'Bookstore\\' => 10,
         ),
     );
@@ -92,6 +93,10 @@ class ComposerStaticInit45a8bf363c594f11a4796b1ed1bbcf5b
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
+        ),
+        'Bookstore\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/tests',
         ),
         'Bookstore\\' => 
         array (
