@@ -8,7 +8,7 @@
     },
     "autoload": {
     	"psr-4": {
-            "Bookstore\\Tests\\": "tests",
+            "Bookstore\\Tests\\": "Tests",
     		"Bookstore\\": "src"
     	}
     }

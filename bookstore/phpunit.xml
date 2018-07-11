@@ -12,7 +12,7 @@
 	>
 	<testsuites>
 		<testsuite name="Bookstore Test Suite">
-			<directory>./src/tests/</directory>
+			<directory>./src/Tests/</directory>
 		</testsuite>
 	</testsuites>
 	<filter>
