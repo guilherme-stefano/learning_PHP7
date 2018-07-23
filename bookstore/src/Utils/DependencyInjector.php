@@ -17,7 +17,7 @@ class DependencyInjector {
 			return $this->dependencies[$name];
 		}
 		throw new NotFoundException (
-				$name . 'dependency not found'
+				$name . ' dependency not found'
 			);
 	}
 
