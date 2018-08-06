@@ -169,7 +169,8 @@ class BookControllerTest extends ControllerTestCase {
 
 		$result = $controller->borrow(123);
 
-		$this->assertSame($result, $response, )
+		$this->assertSame($result, $response, 
+			$response, 'Response object is not the expected one.')
 
 	}	
 }

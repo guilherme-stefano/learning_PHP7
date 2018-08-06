@@ -20,16 +20,26 @@ class BookModelTest extends ModelTestCase {
 		$this->model = new BookModel($this->db);
 	}
 
-	protected function buildBook( array $properties): Book{
-		$book = new Book();
-		$reflectionClass = new ReflectionClass(Book::class);
+	/**
+	* @expectedException \Bookstore\Exceptions\DbException
+	*/
 
-		foreach ($properties as $key => $value) {
-			$property = $reflectionClass->getProperty($key);
-			$property->setAccessible(true);
-			$property->setValue($book, $value);
-		}
-		return $book;
+	public function testBorrowBookNotFound() {
+		$book = $this->buildBook(['id' => 123]);
+		$this->model->borrow($book, 123);
 	}
+
+	/**
+	* @expectedException \Bookstore\Exceptions\DbException
+	*/
+
+	public function testBorrowCustomerNotFound() {
+		$book = $this->buildBook(['id' => 123]);
+		$this->addBook(['id' => 123]);
+
+		$this->model->borrow($book, 123);
+	}
+
+
 
 }
